@@ -4,7 +4,4 @@ projects:
     autoplan:
       when_modified: ["*.tf", "*.tfvars", "*.tfvars.json"]
       enabled: true
-    terraform_extra_args:
-      - name: var-file
-        arguments:
-          - "-var-file=user.tfvars.json"
+    extra_args: ["-var-file=user.tfvars.json"]
