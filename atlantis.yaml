@@ -1,7 +1,19 @@
 version: 3
+workflows:
+  custom:
+    plan:
+      steps:
+        - init
+        - plan:
+            extra_args: ["-var-file=user.tfvars.json"]
+    apply:
+      steps:
+        - apply:
+            extra_args: ["-var-file=user.tfvars.json"]
+
 projects:
   - dir: authentik-test
+    workflow: custom
     autoplan:
       when_modified: ["*.tf", "*.tfvars", "*.tfvars.json"]
       enabled: true
-    extra_args: ["-var-file=user.tfvars.json"]
