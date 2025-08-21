@@ -4,6 +4,4 @@ projects:
     autoplan:
       when_modified: ["*.tf", "*.tfvars", "*.tfvars.json"]
       enabled: true
-    workflow: default
-    terraform_version: v1.8.0 # or your version
     extra_args: ["-var-file=user.tfvars.json"]
